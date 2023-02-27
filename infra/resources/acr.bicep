@@ -14,7 +14,7 @@ param location string = resourceGroup().location
 param acrSku string = 'Basic'
 
 @description('Managed identity object id')
-param manageidObjId string
+#param manageidObjId string
 
 resource acrResource 'Microsoft.ContainerRegistry/registries@2022-02-01-preview' = {
   name: acrName
