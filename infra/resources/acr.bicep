@@ -14,7 +14,7 @@ param location string = resourceGroup().location
 param acrSku string = 'Basic'
 
 @description('Managed identity object id')
-#param manageidObjId string
+param manageidObjId string
 
 resource acrResource 'Microsoft.ContainerRegistry/registries@2022-02-01-preview' = {
   name: acrName
@@ -28,7 +28,7 @@ resource acrResource 'Microsoft.ContainerRegistry/registries@2022-02-01-preview'
   }
 }
 
-/*
+
 var acrPullRole = '7f951dda-4ed3-4680-a7ca-43fe172d538d'
 resource acrPullAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(acrPullRole, manageidObjId, acrResource.id)
@@ -50,7 +50,7 @@ resource acrPushAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' 
     principalType: 'ServicePrincipal'
   }
 }
-*/
+
 output acrname string = acrResource.name
 output acrresourceid string = acrResource.id
 output acrloginserver string = acrResource.properties.loginServer
