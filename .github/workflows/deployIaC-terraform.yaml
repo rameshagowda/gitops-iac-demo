@@ -63,16 +63,22 @@ jobs:
       uses: hashicorp/setup-terraform@v1
 
     - name: Terraform Init
-      run: 
+      run: |
+        pwd
+        cd infra
         terraform init
         
     - name: Terraform Plan
-      run: 
+      run: |
+        pwd
+        cd infra
         terraform plan
     
     - name: Terraform Apply
       # if: github.ref == 'refs/heads/"main"'
-      run: 
+      run: |
+        pwd
+        cd infra
         terraform apply -auto-approve 
         
     #- name: Bicep Deployment
