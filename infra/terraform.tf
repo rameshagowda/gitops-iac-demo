@@ -20,13 +20,13 @@ provider "azurerm" {
 
 # Create a resource group
 resource "azurerm_resource_group" "rg" {
-  name     = "devopsdemo-rg"
+  name     = "gitopsdemorg"
   location = "eastus"
 }
 
 # Create an ACR instance
 resource "azurerm_container_registry" "acr" {
-  name                     = "devopsdemo-acr"
+  name                     = "gitopsdemoacr"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   sku                      = "Standard"
@@ -35,7 +35,7 @@ resource "azurerm_container_registry" "acr" {
 
 # Create an AKS cluster
 resource "azurerm_kubernetes_cluster" "aks" {
-  name                = "devopsdemo-aks"
+  name                = "gitopsdemoaks"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   dns_prefix = "myaks"
