@@ -108,8 +108,8 @@ jobs:
       id: set-context
       uses: azure/aks-set-context@v3
       with:
-        resource-group: '${{ needs.Deployment_IaC.outputs.resourcegroupname }}' 
-        cluster-name: '${{ needs.Deployment_IaC.outputs.aksresourcename }}'
+        resource-group: gitopsdemorg # '${{ needs.Deployment_IaC.outputs.resourcegroupname }}' 
+        cluster-name: gitopsdemohelloaks # '${{ needs.Deployment_IaC.outputs.aksresourcename }}'
     - name: Install ArgoCD on AKS
       id: argocd
       run: |
